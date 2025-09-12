@@ -1,0 +1,2 @@
+(U) Document with portion marks but no banner.
+(U) Should produce CM-NOBANNER.

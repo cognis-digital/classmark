@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cognis-classmark"
+version = "0.1.0"
+description = "CAPCO-shape classification banner + portion marking library — placeholders only"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [{name="Cognis Digital", email="suite@cognis.digital"}]
+readme = "README.md"
+keywords = ["military","ic","dod","cognis-digital","classmark"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov"]
+
+[project.scripts]
+classmark = "classmark.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["classmark", "cognis_mil"]
