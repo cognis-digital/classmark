@@ -5,6 +5,31 @@
 
 > Build CAPCO-shape banner + portion marks. Validate *shape*, not content. Operators supply real values at runtime.
 
+## Usage — step by step
+
+1. **Install** the shared library once for the ecosystem, then this tool's `classmark` command:
+   ```bash
+   pip install cognis-mil      # shared library (once)
+   pip install -e .            # this tool
+   ```
+2. **Run a scan** — the positional `target` is a path (defaults to `.`):
+   ```bash
+   classmark ./docs
+   ```
+3. **Set the classification banner** (operator-supplied PLACEHOLDER; the tool does not interpret it) and pick an output format (`console`, `json`, `markdown`, `sarif`, `oscal`):
+   ```bash
+   classmark ./docs --classification "UNCLASSIFIED//FOR PUBLIC RELEASE" --format markdown
+   ```
+4. **Write the report to a file** for review or evidence:
+   ```bash
+   classmark ./docs --format sarif --out classmark.sarif
+   ```
+5. **Gate CI / RMF pipelines** with `--fail-on` (`very_high|high|moderate|low|none`), which exits `1` when a finding meets that severity:
+   ```yaml
+   - run: pip install cognis-mil && pip install -e .
+   - run: classmark . --fail-on high --format sarif --out classmark.sarif
+   ```
+
 ## Upstream
 
 Forks / wraps **(original)**. See [`UPSTREAM.md`](./UPSTREAM.md) for the
