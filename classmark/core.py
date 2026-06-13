@@ -8,9 +8,8 @@ Reference: ODNI CAPCO Implementation Manual (public reference doc).
 Reference: 32 CFR Part 2002 (CUI Program).
 """
 from __future__ import annotations
-from dataclasses import dataclass, field
 from pathlib import Path
-from cognis_mil import ScanResult, Finding, Severity, ClassificationBanner
+from cognis_mil import ScanResult, Finding, Severity
 
 # CUI categories from National Archives CUI Registry (public)
 CUI_CATEGORIES = {
