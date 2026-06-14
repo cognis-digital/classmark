@@ -23,3 +23,6 @@ classmark = "classmark.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["classmark", "cognis_mil"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
