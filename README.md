@@ -5,6 +5,64 @@
 
 > Build CAPCO-shape banner + portion marks. Validate *shape*, not content. Operators supply real values at runtime.
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ classmark-emit --version
+classmark 0.1.0
+```
+
+```console
+$ classmark-emit --help
+usage: classmark [-h] [--format {console,json,markdown,sarif,oscal}]
+                 [--out OUT] [--fail-on {very_high,high,moderate,low,none}]
+                 [--classification CLASSIFICATION] [-v]
+                 [target]
+
+classmark — Cognis Digital · Military/IC ecosystem
+
+positional arguments:
+  target                Path/target
+
+options:
+  -h, --help            show this help message and exit
+  --format {console,json,markdown,sarif,oscal}
+  --out OUT             Write output to file
+  --fail-on {very_high,high,moderate,low,none}
+  --classification CLASSIFICATION
+                        Operator-supplied banner. PLACEHOLDER. Tool does not
+                        interpret.
+  -v, --version         show program's version number and exit
+```
+
+> Blocks above are real `classmark` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"finding": {
+"id": "1234567890",
+"created_at": "2023-02-22T14:30:00Z",
+"name": "Suspicious Network Traffic",
+"description": "Possible malicious activity detected on network interface 192.168.1.100",
+"severity": "high",
+"confidence": 0.8,
+"labels": ["network", "malware"],
+"references": [
+    {"id": "1234567890-1", "type": "cve", "href": "https://cve.mitre.org/CVE-2022-1234"},
+    {"id": "1234567890-2", "type": "mitre", "href": "https://attack.mitre.org/techniques/T1059"}
+]
+}
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the shared library once for the ecosystem, then this tool's `classmark` command:
